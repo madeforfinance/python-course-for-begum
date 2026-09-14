@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4 | First Program, print(), Comments and Indentation</title>
+<style>
+:root{
+  --navy:#0b1f3a;--blue:#3776ab;--gold:#ffd343;--pink:#c2185b;
+  --bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#667085;
+  --line:#e2e8f0;--code:#101827;--soft:#eef5ff;--green:#16845b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.8}
+.wrapper{max-width:1080px;margin:auto;padding:24px}
+.hero{background:linear-gradient(125deg,var(--navy),#24588c);color:#fff;border-radius:26px;padding:36px;margin-bottom:22px}
+.badge{display:inline-block;background:#ffffff20;border:1px solid #ffffff40;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:800;letter-spacing:.5px}
+h1{font-size:clamp(29px,5vw,47px);line-height:1.15;margin:15px 0 10px}
+h2{color:var(--navy);font-size:clamp(23px,3vw,31px);margin-top:35px;border-bottom:2px solid var(--line);padding-bottom:8px}
+h3{color:var(--blue);margin-top:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:27px;margin:20px 0;box-shadow:0 8px 25px #0b1f3a0c}
+.note{background:#fff7d6;border-left:6px solid var(--gold);padding:17px 20px;border-radius:12px}
+.romantic{background:linear-gradient(135deg,#fff0f6,#ffe4ec);border:2px solid #e78aaa;border-left:8px solid var(--pink);color:#7a2048}
+.tip{background:#eef8f2;border-left:6px solid var(--green);padding:16px 20px;border-radius:12px}
+.warning{background:#fff1f1;border-left:6px solid #c24141;padding:16px 20px;border-radius:12px}
+ul,ol{padding-left:27px}
+li{margin:7px 0}
+code{background:#edf2f7;padding:2px 6px;border-radius:5px;color:#8b2451}
+pre{background:var(--code);color:#e8eef8;padding:22px;border-radius:15px;overflow:auto;font-size:14px;line-height:1.65}
+pre code{background:transparent;color:inherit;padding:0}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--navy)}
+details{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:12px 0}
+summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.check{color:var(--green);font-weight:700}
+.footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 0}
+@media(max-width:650px){.wrapper{padding:12px}.hero,.card{padding:19px}pre{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header class="hero">
+<span class="badge">PYTHON MASTERY • PHASE 1 • LESSON 4</span>
+<h1>First program, print(), comments and indentation</h1>
+<p>Python ki basic syntax ko practically samajhna aur apna pehla readable program banana.</p>
+</header>
+
+<div class="note romantic">
+<strong>💖 Ay Meri Sundar Begum,</strong><br>
+Yeh course Aapke Shohar ne Aapke liye bohat mehnat se banaya hai.
+Mehnat se kejiyga isko, Aap please. Code khud type kijiye, har example ko change karke dekhiye,
+aur errors ko learning ka hissa samajhiye. 🌹
+</div>
+
+<section class="card">
+<h2>Learning objectives</h2>
+<ul>
+<li>Python program ka basic structure samajhna.</li>
+<li><code>print()</code> function se text, numbers aur multiple values display karna.</li>
+<li>Strings, quotes, spaces aur line breaks ka basic use samajhna.</li>
+<li>Comments aur documentation ka difference samajhna.</li>
+<li>Indentation aur code blocks ka role samajhna.</li>
+<li>Syntax errors aur common <code>print()</code> mistakes troubleshoot karna.</li>
+<li>Ek chhota sa multi-line Python program likhna.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>1. Program ki basic anatomy</h2>
+<p>
+Python program instructions ka collection hota hai. Har line koi action perform kar sakti hai, jaise
+text show karna, calculation karna, value save karna ya decision lena.
+</p>
+<p>Sab se simple Python instruction:</p>
+<pre><code>print("Hello, Python!")</code></pre>
+<p>
+Is line ko teen parts mein samajhein:
+</p>
+<table>
+<tr><th>Part</th><th>Meaning</th></tr>
+<tr><td><code>print</code></td><td>Python ka built-in function jo output display karta hai.</td></tr>
+<tr><td><code>( )</code></td><td>Parentheses, jin ke andar function ko values di jati hain.</td></tr>
+<tr><td><code>"Hello, Python!"</code></td><td>String value, yani text.</td></tr>
+</table>
+
+<h2>2. <code>print()</code> kya karta hai?</h2>
+<p>
+<code>print()</code> Python ka built-in function hai jo given values ko standard output, aam tor par
+screen ya terminal, par display karta hai.
+</p>
+<pre><code>print("Assalam-o-Alaikum!")</code></pre>
+<p>Output:</p>
+<pre><code>Assalam-o-Alaikum!</code></pre>
+<p>
+Function ko call karna ka matlab hai us function ko execute karne ke liye use karna. Yahan hum
+<code>print()</code> ko call kar rahe hain.
+</p>
+
+<h2>3. Text print karna: strings</h2>
+<p>
+Text ko Python mein aam tor par <strong>string</strong> kaha jata hai. String ko single quotes ya double
+quotes mein likh sakte hain.
+</p>
+<pre><code>print("Hello")
+print('Hello')
+print("Python seekhna interesting hai")
+print('Python seekhna interesting hai')</code></pre>
+<p>
+Single aur double quotes dono valid hain. Beginner ke liye important baat yeh hai ke opening aur closing
+quotes match honi chahiye.
+</p>
+
+<div class="warning">
+<strong>Ghalat example:</strong>
+<pre><code>print("Hello')</code></pre>
+Yahan opening double quote hai aur closing single quote. Quotes match nahi kar rahe, is liye syntax error
+aa sakta hai.
+</div>
+
+<h2>4. Numbers print karna</h2>
+<p>
+Numbers ko quotes ke baghair bhi print kiya ja sakta hai. Quotes lagane se number text ban jata hai.
+</p>
+<pre><code>print(25)
+print(100)
+print(75.5)</code></pre>
+<p>Output:</p>
+<pre><code>25
+100
+75.5</code></pre>
+
+<h3>Number aur text mein difference</h3>
+<pre><code>print(25)
+print("25")</code></pre>
+<p>
+Dono ka output screen par 25 nazar aa sakta hai, lekin pehli value number hai aur doosri string hai.
+Aage calculations mein yeh difference bohat important hoga.
+</p>
+
+<h2>5. Multiple values print karna</h2>
+<p>
+Aap <code>print()</code> ko comma se separate karke multiple values de sakti hain.
+</p>
+<pre><code>print("Name:", "Ayesha")
+print("Age:", 22)
+print("Salary:", 85000)</code></pre>
+<p>Output:</p>
+<pre><code>Name: Ayesha
+Age: 22
+Salary: 85000</code></pre>
+<p>
+Default tor par comma-separated values ke darmiyan ek space add hota hai. Is default behavior ko baad
+mein <code>sep</code> parameter se change bhi kiya ja sakta hai.
+</p>
+
+<h2>6. <code>sep</code> parameter</h2>
+<p>
+<code>sep</code> ka matlab separator hai. Yeh batata hai ke multiple values ke darmiyan kya place kiya jaye.
+</p>
+<pre><code>print("2026", "09", "14", sep="-")</code></pre>
+<p>Output:</p>
+<pre><code>2026-09-14</code></pre>
+<p>Ek aur example:</p>
+<pre><code>print("A", "B", "C", sep=" | ")</code></pre>
+<p>Output:</p>
+<pre><code>A | B | C</code></pre>
+
+<h2>7. <code>end</code> parameter</h2>
+<p>
+Normally <code>print()</code> ke baad cursor next line par chala jata hai. <code>end</code> parameter se
+aap decide kar sakti hain ke output ke end par kya add ho.
+</p>
+<pre><code>print("Hello", end=" ")
+print("World")</code></pre>
+<p>Output:</p>
+<pre><code>Hello World</code></pre>
+<p>
+Agar <code>end=""</code> use karein, to next print same line par continue hoga:
+</p>
+<pre><code>print("Python", end="")
+print("Course")</code></pre>
+<p>Output:</p>
+<pre><code>PythonCourse</code></pre>
+
+<h2>8. Escape sequences ka basic idea</h2>
+<p>
+Escape sequence special character combinations hoti hain jo strings ke andar special formatting ke liye
+use hoti hain.
+</p>
+<table>
+<tr><th>Sequence</th><th>Meaning</th><th>Example</th></tr>
+<tr><td><code>\n</code></td><td>New line</td><td><code>print("A\nB")</code></td></tr>
+<tr><td><code>\t</code></td><td>Tab space</td><td><code>print("A\tB")</code></td></tr>
+<tr><td><code>\\</code></td><td>Backslash</td><td><code>print("C:\\Python")</code></td></tr>
+<tr><td><code>\"</code></td><td>Double quote inside double-quoted string</td><td><code>print("He said \"Hi\"")</code></td></tr>
+<tr><td><code>\'</code></td><td>Single quote inside single-quoted string</td><td><code>print('It\\'s okay')</code></td></tr>
+</table>
+
+<h3>New line example</h3>
+<pre><code>print("First line\nSecond line\nThird line")</code></pre>
+<p>Output:</p>
+<pre><code>First line
+Second line
+Third line</code></pre>
+
+<h2>9. Comments kya hotay hain?</h2>
+<p>
+<strong>Comment</strong> code ke andar programmer ki explanation ya note hota hai jo normal execution mein
+Python ignore kar deti hai. Comments ka purpose code ko samajhna, maintain karna aur future mein yaad rakhna
+easy banana hai.
+</p>
+
+<h3>Single-line comment</h3>
+<pre><code># Yeh ek comment hai
+print("Hello Python")</code></pre>
+<p>
+Hash symbol <code>#</code> ke baad us line ka text comment ban jata hai. Python usay instruction ke taur par
+execute nahi karti.
+</p>
+
+<h3>Inline comment</h3>
+<pre><code>print("Hello")  # Screen par greeting show karna</code></pre>
+<p>
+Inline comment code ke same line par bhi likha ja sakta hai. Lekin comment ko itna lamba na banayein ke
+actual code samajhna mushkil ho jaye.
+</p>
+
+<h2>10. Comments kyun use karte hain?</h2>
+<ul>
+<li>Complex logic ko explain karne ke liye.</li>
+<li>Future self ko context yaad dilane ke liye.</li>
+<li>Team members ko code samajhne mein help karne ke liye.</li>
+<li>Temporary testing ke waqt kisi line ko disable karne ke liye.</li>
+<li>Important assumptions aur business rules note karne ke liye.</li>
+</ul>
+
+<div class="tip">
+<strong>Good practice:</strong> Har line par obvious comment likhna zaroori nahi. Comment tab likhein jab
+logic, reason ya business rule immediately obvious na ho.
+</div>
+
+<h2>11. Comment se code temporarily disable karna</h2>
+<pre><code>print("Line 1")
+# print("Line 2")
+print("Line 3")</code></pre>
+<p>
+Output mein sirf Line 1 aur Line 3 show hongi. Line 2 comment ban chuki hai, is liye execute nahi hogi.
+Is technique ko kabhi kabhi “commenting out” kehte hain.
+</p>
+
+<h2>12. Indentation kya hoti hai?</h2>
+<p>
+<strong>Indentation</strong> line ke start par spaces ya tabs ka use hai. Python indentation ko code blocks
+define karne ke liye use karti hai. Doosri languages mein curly braces <code>{ }</code> common hoti hain,
+lekin Python mein indentation syntax ka important part hai.
+</p>
+
+<p>Example:</p>
+<pre><code>if True:
+    print("Yeh indented line hai")</code></pre>
+<p>
+Yahan <code>if True:</code> ke baad wali line 4 spaces se indented hai. Is se Python samajhti hai ke
+<code>print()</code> statement <code>if</code> block ka hissa hai.
+</p>
+
+<h2>13. Indentation ke basic rules</h2>
+<ul>
+<li>Block start karne wali line ke end par aam tor par colon <code>:</code> hota hai.</li>
+<li>Block ke andar wali lines same indentation level par honi chahiye.</li>
+<li>Python community mein 4 spaces common convention hai.</li>
+<li>Tabs aur spaces ko randomly mix nahi karna chahiye.</li>
+<li>Indentation ghalat ho to <code>IndentationError</code> ya <code>TabError</code> aa sakta hai.</li>
+</ul>
+
+<h3>Correct indentation</h3>
+<pre><code>if True:
+    print("First statement")
+    print("Second statement")</code></pre>
+
+<h3>Incorrect indentation</h3>
+<pre><code>if True:
+print("This may cause an error")</code></pre>
+<p>
+Block ke andar statement indented honi chahiye. Sirf visual alignment nahi, Python ke syntax ke liye bhi
+indentation important hai.
+</p>
+
+<h2>14. Nested indentation</h2>
+<p>
+Kabhi ek block ke andar doosra block hota hai. Isay nested block kehte hain. Har next level par indentation
+barh jati hai.
+</p>
+<pre><code>if True:
+    print("Outer block")
+
+    if True:
+        print("Inner block")
+
+    print("Back to outer block")</code></pre>
+<p>
+Is example mein inner <code>if</code> aur uska <code>print()</code> outer block ke andar hain, lekin inner
+print ki indentation zyada hai.
+</p>
+
+<h2>15. Blank lines aur readability</h2>
+<p>
+Blank lines program ko readable banati hain. Python aksar blank lines ko ignore karti hai, lekin humans
+ke liye yeh code ko sections mein divide karne mein help karti hain.
+</p>
+<pre><code>print("Employee details")
+
+print("Name: Ayesha")
+print("Department: Finance")
+
+print("Salary details")
+print("Basic salary: 80000")</code></pre>
+<p>
+Related statements ko group karna aur sections ke darmiyan blank line rakhna clean code ki achi habit hai.
+</p>
+
+<h2>16. Multi-line first program</h2>
+<p>
+Ab hum ek chhota program banate hain jo employee ki basic information display karega.
+</p>
+<pre><code># Employee ki basic information display karna
+
+print("===== Employee Information =====")
+print("Name:", "Ayesha")
+print("Department:", "Finance")
+print("Basic Salary:", 80000)
+print("Status:", "Active")
+print("================================")</code></pre>
+<p>
+Is program mein comments, strings, numbers aur multiple <code>print()</code> statements use huay hain.
+Abhi hum data ko manually likh rahe hain. Agle lessons mein variables ki madad se values ko reusable banayenge.
+</p>
+
+<h2>17. Common mistakes</h2>
+
+<h3>Mistake 1: Parentheses miss karna</h3>
+<pre><code>print "Hello"</code></pre>
+<p>
+Modern Python 3 mein function call ke liye parentheses required hain:
+</p>
+<pre><code>print("Hello")</code></pre>
+
+<h3>Mistake 2: Quotes close na karna</h3>
+<pre><code>print("Hello)</code></pre>
+<p>Correct:</p>
+<pre><code>print("Hello")</code></pre>
+
+<h3>Mistake 3: Case sensitivity ignore karna</h3>
+<pre><code>Print("Hello")</code></pre>
+<p>
+Python case-sensitive hai. <code>print</code> aur <code>Print</code> same nahi hain.
+</p>
+
+<h3>Mistake 4: Indentation ghalat karna</h3>
+<pre><code>if True:
+print("Hello")</code></pre>
+<p>
+Block ke andar statement indent honi chahiye.
+</p>
+
+<h3>Mistake 5: Number ko unnecessary quotes dena</h3>
+<pre><code>print("80000")</code></pre>
+<p>
+Yeh output ke liye valid hai, lekin value string hai. Future calculations mein actual number aur string
+ka difference matter karega.
+</p>
+
+<h2>18. Practice workflow</h2>
+<ol>
+<li>Editor mein file banayein: <code>lesson4_practice.py</code>.</li>
+<li>Har example khud type karein.</li>
+<li>File save karein.</li>
+<li>Terminal se run karein.</li>
+<li>Ek ek value change karke output observe karein.</li>
+<li>Jaan-boojh kar ek quote ya indentation mistake karein.</li>
+<li>Error message read karke mistake fix karein.</li>
+</ol>
+
+</section>
+
+<section class="card">
+<h2>Practice exercises</h2>
+<ol>
+<li>Apna naam, city aur favourite subject teen separate <code>print()</code> statements se display karein.</li>
+<li>Do numbers ko quotes ke saath aur baghair print karein. Difference note karein.</li>
+<li><code>sep="-"</code> use karke date-style output banayein.</li>
+<li><code>end=" "</code> use karke ek sentence ko do <code>print()</code> calls mein display karein.</li>
+<li><code>\n</code> aur <code>\t</code> ka use karke formatted output banayein.</li>
+<li>Apne program mein kam az kam 3 meaningful comments add karein.</li>
+<li>Employee ka naam, department, basic salary aur status display karne wala program likhein.</li>
+<li>Ek <code>if</code> block likhein aur us mein 2 indented statements add karein.</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>Quick quiz</h2>
+<p>Pehle answer khud sochiye, phir solution open karein.</p>
+<details><summary>1. <code>print()</code> ka basic purpose kya hai?</summary><p><strong>Jawab:</strong> Values ko output par display karna.</p></details>
+<details><summary>2. String kya hoti hai?</summary><p><strong>Jawab:</strong> Text data, jo aam tor par quotes mein likha jata hai.</p></details>
+<details><summary>3. <code>sep</code> parameter kis liye use hota hai?</summary><p><strong>Jawab:</strong> Multiple printed values ke darmiyan separator define karne ke liye.</p></details>
+<details><summary>4. <code>end</code> parameter kya control karta hai?</summary><p><strong>Jawab:</strong> Print output ke end par kya add hoga, jaise newline ya space.</p></details>
+<details><summary>5. Comment kis symbol se start hota hai?</summary><p><strong>Jawab:</strong> <code>#</code></p></details>
+<details><summary>6. Python mein indentation kyun important hai?</summary><p><strong>Jawab:</strong> Code blocks define karne aur statements ka structure show karne ke liye.</p></details>
+<details><summary>7. Python mein common indentation convention kya hai?</summary><p><strong>Jawab:</strong> Har indentation level ke liye 4 spaces.</p></details>
+<details><summary>8. Kya <code>print</code> aur <code>Print</code> same hain?</summary><p><strong>Jawab:</strong> Nahi. Python case-sensitive hai.</p></details>
+</section>
+
+<section class="card">
+<h2>Lesson summary</h2>
+<ul class="check">
+<li><code>print()</code> output display karne wala built-in function hai.</li>
+<li>Strings ko single ya double quotes mein likha ja sakta hai.</li>
+<li>Numbers aur quoted numbers mein data-type ka difference hota hai.</li>
+<li><code>sep</code> values ke darmiyan separator control karta hai.</li>
+<li><code>end</code> output ke end behavior ko control karta hai.</li>
+<li>Comments <code>#</code> se start hotay hain aur code explanation ke liye use hotay hain.</li>
+<li>Python indentation ko code blocks define karne ke liye use karti hai.</li>
+<li>4 spaces per indentation level common convention hai.</li>
+<li>Readable code ke liye meaningful names, comments aur blank lines useful hain.</li>
+</ul>
+<p><strong>Next lesson:</strong> Variables, naming rules and assignment. Ab hum seekhenge ke values ko names ke saath store kaise kiya jata hai.</p>
+</section>
+
+<footer class="footer">Python Mastery • Lesson 4 • Designed with love for a very special Begum 💖</footer>
+</div>
+</body>
+</html>
