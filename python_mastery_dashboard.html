@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Mastery | Course Dashboard</title>
+<style>
+:root{
+  --navy:#0b1f3a;
+  --blue:#3776ab;
+  --yellow:#ffd343;
+  --ink:#172033;
+  --muted:#687386;
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --line:#e2e8f0;
+  --green:#16845b;
+  --orange:#c97918;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.55}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.app{max-width:1450px;margin:auto;padding:24px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:58px;height:58px;border-radius:16px;background:var(--navy);color:white;display:grid;place-items:center;font-weight:900;font-size:22px;position:relative;box-shadow:0 8px 20px #0b1f3a22}
+.logo:after{content:"";position:absolute;right:7px;bottom:7px;width:12px;height:12px;border-radius:4px;background:var(--yellow)}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(25px,4vw,38px);line-height:1.15;margin-bottom:5px}
+.subtitle{color:var(--muted);margin:0}
+.top-actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:10px 14px;border-radius:11px;font-weight:700}
+.btn.primary{background:var(--navy);color:white;border-color:var(--navy)}
+.btn:hover{filter:brightness(.97)}
+.hero{background:linear-gradient(120deg,var(--navy),#173f70);color:white;border-radius:24px;padding:30px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;box-shadow:0 14px 35px #0b1f3a20}
+.hero p{color:#dbe8f8;max-width:720px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#ffffff18;border:1px solid #ffffff30;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.4px;text-transform:uppercase}
+.hero h2{font-size:clamp(24px,3vw,34px);line-height:1.2;margin:16px 0 10px}
+.hero-art{min-height:180px;display:grid;place-items:center}
+.code-card{width:min(100%,360px);background:#101b2d;border:1px solid #ffffff22;border-radius:18px;padding:18px;box-shadow:0 14px 30px #0003;font-family:Consolas,monospace;font-size:14px}
+.code-card .comment{color:#91a4bb}.code-card .keyword{color:#ffcf65}.code-card .string{color:#a6e3a1}.code-card .function{color:#82c7ff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:18px}
+.stat-top{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px;font-weight:700}
+.stat strong{display:block;font-size:30px;line-height:1.2;margin:9px 0 5px}
+.progress{height:9px;background:#e7edf5;border-radius:99px;overflow:hidden}
+.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#55a7dd);width:0%;transition:width .25s}
+.controls{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.search{flex:1 1 280px;position:relative}
+.search input{width:100%;padding:12px 14px 12px 40px;border:1px solid var(--line);border-radius:11px;outline:none;background:#fbfcfe}
+.search input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #3776ab22}
+.search span{position:absolute;left:14px;top:10px;color:var(--muted)}
+select{padding:12px 35px 12px 12px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;color:var(--ink)}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px;align-items:start}
+.sidebar,.content-card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+.sidebar{padding:16px;position:sticky;top:18px}
+.sidebar h3{font-size:14px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:12px}
+.phase-nav{display:flex;flex-direction:column;gap:5px}
+.phase-nav button{text-align:left;border:0;background:transparent;padding:10px 11px;border-radius:10px;color:var(--ink);display:flex;justify-content:space-between;gap:8px}
+.phase-nav button.active{background:#e9f2fb;color:#174c7a;font-weight:800}
+.phase-nav button span{font-size:12px;color:var(--muted)}
+.phase-nav button.active span{color:#174c7a}
+.content-card{padding:20px}
+.content-head{display:flex;justify-content:space-between;align-items:start;gap:15px;margin-bottom:17px}
+.content-head h2{margin-bottom:4px;font-size:24px}
+.content-head p{color:var(--muted);margin-bottom:0}
+.legend{display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-size:12px;border-radius:999px;padding:5px 9px;font-weight:800;white-space:nowrap}
+.pill.beginner{background:#e7f6ee;color:#16734e}.pill.intermediate{background:#e8f1ff;color:#245b98}.pill.advanced{background:#fff1dc;color:#98570e}.pill.final{background:#f1e9ff;color:#6c43a4}
+.lesson-list{display:grid;gap:10px}
+.lesson{border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;grid-template-columns:50px minmax(0,1fr) auto;gap:13px;align-items:center;background:#fff}
+.lesson:hover{border-color:#a9c7e2;background:#fbfdff}
+.lesson-num{width:44px;height:44px;border-radius:12px;background:#edf4fb;color:#245b98;display:grid;place-items:center;font-weight:900;font-size:13px}
+.lesson-title-link{color:var(--navy);font-weight:800;text-decoration:none}.lesson-title-block{display:block;padding:4px 0}.lesson-title-block .lesson-meta{color:var(--muted)}.lesson-title-link:hover{text-decoration:underline}.lesson-title{font-weight:850;margin-bottom:3px}
+.lesson-meta{font-size:12px;color:var(--muted)}
+.lesson-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.lesson-link{border:1px solid #cbdbea;background:#f7fbff;color:#245b98;padding:8px 10px;border-radius:9px;font-size:12px;font-weight:800}
+.lesson-link.disabled{opacity:.48;cursor:not-allowed}
+.status-btn{border:1px solid var(--line);background:white;padding:8px 10px;border-radius:9px;font-size:12px;font-weight:800}
+.status-btn.completed{background:#e7f6ee;color:#16734e;border-color:#b9e5cd}
+.empty{padding:35px;text-align:center;color:var(--muted);border:1px dashed #cbd5e1;border-radius:14px}
+.footer{padding:22px 0 5px;color:var(--muted);font-size:13px;text-align:center}
+.dedication{background:linear-gradient(135deg,#fff0f6,#ffe4ec);border:2px solid #e78aaa;border-left:8px solid #c2185b;color:#7a2048;font-size:16px;line-height:1.8;box-shadow:0 8px 22px #c2185b22}.dedication strong{color:#a31352}.note{background:#fff9e8;border:1px solid #f4df9b;color:#72571b;border-radius:13px;padding:12px 14px;font-size:13px;margin-bottom:18px}
+@media(max-width:1050px){.hero{grid-template-columns:1fr}.hero-art{display:none}.layout{grid-template-columns:1fr}.sidebar{position:static}.phase-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.app{padding:13px}.topbar{align-items:flex-start;flex-direction:column}.hero{padding:22px}.stats{gap:9px}.stat{padding:13px}.stat strong{font-size:25px}.content-card{padding:13px}.content-head{flex-direction:column}.phase-nav{grid-template-columns:1fr}.lesson{grid-template-columns:42px minmax(0,1fr)}.lesson-actions{grid-column:2;justify-content:flex-start}.lesson-num{width:38px;height:38px}.controls{padding:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">Py</div>
+      <div>
+        <h1>Python Mastery</h1>
+        <p class="subtitle">Complete learning path from zero to Employee Salary Management System</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="btn" id="resetBtn">Reset Progress</button>
+      <button class="btn primary" id="startBtn">Start First Lesson</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <span class="hero-badge">Python 3 • Roman Urdu Course</span>
+      <h2>Learn Python. Build real software.</h2>
+      <p>Har phase mein concepts, syntax, examples, exercises aur practical projects. Final destination: a complete Employee Salary Management System with database, GUI, payroll calculations and reports.</p>
+      <button class="btn" id="continueBtn">Continue Learning →</button>
+    </div>
+    <div class="hero-art">
+      <div class="code-card">
+        <div><span class="comment"># Employee salary example</span></div>
+        <div><span class="keyword">basic_salary</span> = 50000</div>
+        <div><span class="keyword">allowance</span> = 8000</div>
+        <div><span class="keyword">deduction</span> = 2500</div>
+        <br>
+        <div><span class="keyword">net_salary</span> = basic_salary + allowance - deduction</div>
+        <div><span class="function">print</span>(net_salary)</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><div class="stat-top">Total Lessons <span>📚</span></div><strong id="totalStat">0</strong><div class="lesson-meta">Across all phases</div></div>
+    <div class="stat"><div class="stat-top">Completed <span>✓</span></div><strong id="doneStat">0</strong><div class="progress"><span id="doneBar"></span></div></div>
+    <div class="stat"><div class="stat-top">Remaining <span>⌛</span></div><strong id="remainingStat">0</strong><div class="lesson-meta">Lessons left to study</div></div>
+    <div class="stat"><div class="stat-top">Current Phase <span>🚀</span></div><strong id="phaseStat">1</strong><div class="lesson-meta" id="phaseNameStat">Foundations</div></div>
+  </section>
+
+  
+<div class="note dedication">
+  💖 <strong>Ay Meri Sundar Begum,</strong><br>
+  Yeh course <strong>Aapke Shohar ne Aapke liye</strong> bohat mehnat se banaya hai.
+  Mehnat se kejiyega isko, Aap please. Har lesson ko araam se parhiye, examples khud run kijiye,
+  aur apni learning ko step by step mazboot banaiye. Aapki kamyabi is course ka sab se pyara result hogi. 🌹
+</div>
+
+<div class="note">Lesson links are prepared for the filenames shown below. Jab aap kisi lesson ki HTML file banayenge, usay isi dashboard ke folder mein given filename ke saath save karein. Phir link directly kaam karega.</div>
+
+  <section class="controls">
+    <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search lessons, topics or keywords..."></div>
+    <select id="phaseFilter"><option value="all">All phases</option></select>
+    <select id="statusFilter"><option value="all">All statuses</option><option value="not-started">Not started</option><option value="in-progress">In progress</option><option value="completed">Completed</option></select>
+    <button class="btn" id="expandBtn">Expand All</button>
+  </section>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Course Phases</h3>
+      <nav class="phase-nav" id="phaseNav"></nav>
+    </aside>
+    <main class="content-card">
+      <div class="content-head">
+        <div>
+          <h2 id="sectionTitle">All Lessons</h2>
+          <p id="sectionDesc">Select a phase or search for a topic.</p>
+        </div>
+        <div class="legend"><span class="pill beginner">Beginner</span><span class="pill intermediate">Intermediate</span><span class="pill advanced">Advanced</span></div>
+      </div>
+      <div class="lesson-list" id="lessonList"></div>
+    </main>
+  </div>
+
+  <footer class="footer">Python Mastery Dashboard • Progress is saved locally in this browser.</footer>
+</div>
+
+<script>
+const phases = [
+["Programming & Python Foundations","Beginner",["Programming kya hoti hai?","Python introduction, history and features","Python installation and development environment","First program, print(), comments and indentation","Variables, naming rules and assignment","Numbers, strings, booleans and None","Input, output and type conversion","Operators: arithmetic, comparison, logical, assignment, membership and identity","Basic syntax, errors and debugging"]],
+["Conditions, Loops & Logic","Beginner",["if, elif, else and nested conditions","Truthiness and conditional expressions","for loops and range()","while loops","break, continue and pass","Nested loops, counters and accumulators","Input validation","Payroll eligibility and overtime logic"]],
+["Strings & Data Structures","Beginner",["Strings, indexing, slicing and methods","Lists and list methods","Tuples and tuple unpacking","Sets and set operations","Dictionaries and nested dictionaries","Mutable vs immutable objects","List, set and dictionary comprehensions","Sorting, searching and data-structure selection"]],
+["Functions & Modular Programming","Intermediate",["Functions, parameters, arguments and return","Positional, keyword and default arguments","*args, **kwargs and unpacking","Scope: local, global and nonlocal","Lambda functions","map(), filter() and sorted()","Recursion and docstrings","Type annotations","Modules, imports, packages and __main__"]],
+["Errors, Files & Data Storage","Intermediate",["Syntax, runtime and logical errors","try, except, else and finally","raise and custom exceptions","Text files and with statement","CSV read/write","JSON read/write","pathlib and directories","Data validation and safe input handling"]],
+["Object-Oriented Programming","Intermediate",["Classes and objects","self and __init__","Instance and class attributes","Instance, class and static methods","Properties and encapsulation","Inheritance and method overriding","Polymorphism","Abstract base classes","Composition","Dunder methods","Dataclasses"]],
+["Advanced Python Core","Advanced",["Iterables and iterators","Generators and yield","Decorators","Closures","Context managers","Advanced unpacking","match/case","Type hints and protocols","Enums","References, copying and memory concepts"]],
+["Standard Library & Code Quality","Intermediate",["math, statistics and decimal","datetime, date and zoneinfo","collections","itertools and functools","Regular expressions with re","os, sys and pathlib","logging","argparse","secrets and hashing concepts","Virtual environments and pip","PEP 8, formatting, linting and documentation"]],
+["Testing, Debugging & Git","Intermediate",["Debugging and breakpoints","Assertions","unittest","pytest concepts","Fixtures and mocking","Test organization","Test-driven development basics","Git, commits and branches","GitHub workflow","README, refactoring and code review"]],
+["Databases & SQL","Intermediate",["Database and relational concepts","Tables, rows, columns and keys","SQL CREATE, INSERT, SELECT, UPDATE and DELETE","WHERE, ORDER BY and GROUP BY","JOIN and aggregation","Constraints and normalization","SQLite with Python","Parameterized queries and transactions","Database schema design","Indexes and data integrity","SQLAlchemy ORM introduction"]],
+["GUI Development with Tkinter","Intermediate",["GUI concepts and Tkinter","Windows, frames, labels and buttons","Entry fields and forms","Grid, pack and place","Comboboxes, checkboxes and radio buttons","Treeview tables","Events and callbacks","Validation and dialogs","Menus and navigation","Reusable GUI components","Connecting GUI to a database"]],
+["Payroll & Business Logic","Intermediate",["Employee master data","Departments and designations","Joining dates and employment status","Basic salary and allowances","Overtime and bonuses","Deductions, advances and loans","Attendance and leave calculations","Gross and net salary","Monthly payroll processing","Configurable tax and deduction rules","Decimal calculations and rounding","Payroll locking and audit trail"]],
+["Reports, Export & Application Features","Intermediate",["Search, filtering and sorting","Dashboard metrics","Monthly and department-wise reports","CSV export","Excel export with openpyxl","PDF salary slips with reportlab","Backup and restore","User roles and permissions concepts","Audit logs","Application settings","Error handling and user feedback"]],
+["Integration, Security & Deployment","Advanced",["Layered architecture","UI, business logic and database separation","Application configuration","Password security concepts","SQL injection prevention","Input validation and safe file handling","Packaging with pyproject.toml","Executable application concepts","Deployment and backup strategy","Performance profiling","Application maintenance"]],
+["Advanced Python & Specializations","Advanced",["Threading","Multiprocessing","asyncio and async/await","Performance and profiling","REST APIs and FastAPI","Web development fundamentals","NumPy","Pandas","Matplotlib","Machine learning fundamentals","Automation and ethical web scraping","Financial data analysis","Docker and CI/CD concepts"]],
+["Final Capstone: Employee Salary Management System","Final",["Requirements and feature specification","Database schema and architecture","Employee CRUD","Department management","Attendance and leave management","Salary structure and configurable rules","Payroll calculation engine","Monthly payroll processing","Tkinter GUI integration","Reports and exports","Salary slips","Testing and bug fixing","Backup and security","Documentation and deployment","Final project presentation"]]
+];
+
+let lessons=[], selectedPhase="all", searchTerm="", statusFilter="all", expanded=true;
+let progress = JSON.parse(localStorage.getItem("pythonMasteryProgress") || "{}");
+
+phases.forEach((p, pi)=>{
+  p[2].forEach((title, li)=>{
+    const id = `p${pi+1}l${li+1}`;
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+    lessons.push({id,phase:pi+1,phaseName:p[0],level:p[1],title,number:li+1,filename:`${String(pi+1).padStart(2,"0")}-${slug}.html`});
+  });
+});
+
+const $ = id => document.getElementById(id);
+function getStatus(id){return progress[id] || "not-started"}
+function setStatus(id,status){progress[id]=status;localStorage.setItem("pythonMasteryProgress",JSON.stringify(progress));render()}
+function phaseLessons(n){return lessons.filter(l=>l.phase===n)}
+function visibleLessons(){
+  return lessons.filter(l=>{
+    const phaseOK=selectedPhase==="all" || l.phase===Number(selectedPhase);
+    const text=(l.title+" "+l.phaseName).toLowerCase();
+    const searchOK=!searchTerm || text.includes(searchTerm.toLowerCase());
+    const statusOK=statusFilter==="all" || getStatus(l.id)===statusFilter;
+    return phaseOK && searchOK && statusOK;
+  });
+}
+function renderStats(){
+  const completed=lessons.filter(l=>getStatus(l.id)==="completed").length;
+  const inProgress=lessons.filter(l=>getStatus(l.id)==="in-progress").length;
+  $("totalStat").textContent=lessons.length;
+  $("doneStat").textContent=completed;
+  $("remainingStat").textContent=lessons.length-completed;
+  $("doneBar").style.width=(completed/lessons.length*100)+"%";
+  const current=lessons.find(l=>getStatus(l.id)!=="completed") || lessons[lessons.length-1];
+  $("phaseStat").textContent=current.phase;
+  $("phaseNameStat").textContent=current.phaseName;
+}
+function renderPhaseControls(){
+  $("phaseFilter").innerHTML='<option value="all">All phases</option>'+phases.map((p,i)=>`<option value="${i+1}">Phase ${i+1}: ${p[0]}</option>`).join("");
+  $("phaseFilter").value=selectedPhase;
+  $("phaseNav").innerHTML=`<button class="${selectedPhase==="all"?"active":""}" data-phase="all">All lessons <span>${lessons.length}</span></button>`+
+    phases.map((p,i)=>`<button class="${selectedPhase===String(i+1)?"active":""}" data-phase="${i+1}">Phase ${i+1}: ${p[0]} <span>${phaseLessons(i+1).length}</span></button>`).join("");
+  document.querySelectorAll("[data-phase]").forEach(b=>b.addEventListener("click",()=>{selectedPhase=b.dataset.phase;render()}));
+}
+function renderLessons(){
+  const list=visibleLessons();
+  $("sectionTitle").textContent=selectedPhase==="all"?"All Lessons":`Phase ${selectedPhase}: ${phases[Number(selectedPhase)-1][0]}`;
+  $("sectionDesc").textContent=`Showing ${list.length} lesson${list.length===1?"":"s"} • Select a lesson to open its HTML file.`;
+  if(!list.length){$("lessonList").innerHTML='<div class="empty">No lessons match your search or filters.</div>';return}
+  const grouped={};
+  list.forEach(l=>(grouped[l.phase] ||= []).push(l));
+  let html="";
+  Object.keys(grouped).forEach(key=>{
+    if(expanded || selectedPhase!=="all"){
+      html+=`<div style="margin:12px 0 8px;font-size:13px;font-weight:900;color:#687386;text-transform:uppercase;letter-spacing:.6px">Phase ${key}: ${phases[Number(key)-1][0]}</div>`;
+    }
+    html+=grouped[key].map(l=>{
+      const s=getStatus(l.id);
+      const statusLabel=s==="completed"?"Completed":s==="in-progress"?"In progress":"Not started";
+      const path=l.filename;
+      return `<article class="lesson">
+        <div class="lesson-num">${String(l.phase).padStart(2,"0")}.${String(l.number).padStart(2,"0")}</div>
+        <div><a class="lesson-title-link lesson-title-block" href="${path}" title="Open ${l.title}"><div class="lesson-title">${l.title}</div><div class="lesson-meta">${l.phaseName} • ${l.filename}</div></a></div>
+        <div class="lesson-actions">
+          <button class="status-btn ${s==="completed"?"completed":""}" data-status="${l.id}">${s==="completed"?"✓ ":""}${statusLabel}</button>
+          <a class="lesson-link" href="${path}" title="Open ${path}">Open lesson ↗</a>
+        </div>
+      </article>`;
+    }).join("");
+  });
+  $("lessonList").innerHTML=html;
+  document.querySelectorAll("[data-status]").forEach(b=>b.addEventListener("click",()=>{
+    const id=b.dataset.status, current=getStatus(id);
+    setStatus(id,current==="completed"?"not-started":current==="not-started"?"in-progress":"completed");
+  }));
+}
+function render(){renderStats();renderPhaseControls();renderLessons()}
+$("search").addEventListener("input",e=>{searchTerm=e.target.value;renderLessons()});
+$("phaseFilter").addEventListener("change",e=>{selectedPhase=e.target.value;render()});
+$("statusFilter").addEventListener("change",e=>{statusFilter=e.target.value;renderLessons()});
+$("expandBtn").addEventListener("click",()=>{expanded=!expanded;$("expandBtn").textContent=expanded?"Collapse All":"Expand All";renderLessons()});
+$("resetBtn").addEventListener("click",()=>{
+  if(confirm("Reset all lesson progress? This cannot be undone.")){progress={};localStorage.removeItem("pythonMasteryProgress");render()}
+});
+function goToFirst(){
+  const first=lessons.find(l=>getStatus(l.id)!=="completed")||lessons[0];
+  window.location.href=first.filename;
+}
+$("startBtn").addEventListener("click",goToFirst);
+$("continueBtn").addEventListener("click",goToFirst);
+render();
+</script>
+</body>
+</html>

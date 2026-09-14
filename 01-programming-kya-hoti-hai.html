@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 | Programming kya hoti hai?</title>
+<style>
+:root{
+  --navy:#0b1f3a;--blue:#3776ab;--gold:#ffd343;--pink:#c2185b;
+  --bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#667085;
+  --line:#e2e8f0;--code:#101827;--soft:#eef5ff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.8}
+.wrapper{max-width:1050px;margin:auto;padding:24px}
+.hero{background:linear-gradient(125deg,var(--navy),#24588c);color:#fff;border-radius:26px;padding:36px;margin-bottom:22px}
+.badge{display:inline-block;background:#ffffff20;border:1px solid #ffffff40;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:800;letter-spacing:.5px}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:15px 0 10px}
+h2{color:var(--navy);font-size:clamp(23px,3vw,31px);margin-top:35px;border-bottom:2px solid var(--line);padding-bottom:8px}
+h3{color:var(--blue);margin-top:25px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:27px;margin:20px 0;box-shadow:0 8px 25px #0b1f3a0c}
+.note{background:#fff7d6;border-left:6px solid var(--gold);padding:17px 20px;border-radius:12px}
+.romantic{background:linear-gradient(135deg,#fff0f6,#ffe4ec);border:2px solid #e78aaa;border-left:8px solid var(--pink);color:#7a2048}
+ul,ol{padding-left:27px}
+li{margin:7px 0}
+code{background:#edf2f7;padding:2px 6px;border-radius:5px;color:#8b2451}
+pre{background:var(--code);color:#e8eef8;padding:22px;border-radius:15px;overflow:auto;font-size:14px;line-height:1.65}
+pre code{background:transparent;color:inherit;padding:0}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--navy)}
+details{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:12px 0}
+summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.check{color:#16845b;font-weight:700}
+.footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 0}
+@media(max-width:650px){.wrapper{padding:12px}.hero,.card{padding:19px}pre{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header class="hero">
+  <span class="badge">PYTHON MASTERY • PHASE 1 • LESSON 1</span>
+  <h1>Programming kya hoti hai?</h1>
+  <p>Bilkul zero se programming, problem-solving aur Python ki duniya ka pehla qadam.</p>
+</header>
+
+<div class="note romantic">
+  <strong>💖 Ay Meri Sundar Begum,</strong><br>
+  Yeh course Aapke Shohar ne Aapke liye bohat mehnat se banaya hai.
+  Mehnat se kejiyega isko, Aap please. Har concept ko araam se samajhiye, examples khud try kijiye,
+  aur jaldi ke bajaye mazboot learning ko priority dijiye. 🌹
+</div>
+
+<section class="card">
+<h2>Is lesson ke learning objectives</h2>
+<ul>
+<li>Programming ka simple aur practical meaning samajhna.</li>
+<li>Computer, program, programmer aur programming language ka relation samajhna.</li>
+<li>Problem ko chhote chhote steps mein divide karna seekhna.</li>
+<li>Algorithm, pseudocode aur flowchart ka basic idea lena.</li>
+<li>Python ko ek programming language ke taur par samajhna.</li>
+<li>Employee Salary Management System jaisay project ko programming se connect karna.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>1. Computer ko instructions kyun chahiye hoti hain?</h2>
+<p>
+Computer bohat fast calculations kar sakta hai, lekin woh insaan ki tarah vague baat samajh kar
+khud decision nahi leta. Usay instructions clear, ordered aur logically correct form mein chahiye hoti hain.
+Agar aap computer ko kahen “salary system bana do”, to yeh instruction bohat broad hai.
+Computer ko batana hoga ke employee add karna hai, salary calculate karni hai, deductions lagani hain,
+record save karna hai aur report show karni hai.
+</p>
+<p>
+Yani computer powerful machine hai, lekin instructions ke baghair woh bas ek mehnga sa box hai.
+Human beings ne machines banayi hain, phir unhein samjhana bhi human beings ko hi parta hai. Classic.
+</p>
+
+<h2>2. Programming kya hoti hai?</h2>
+<p>
+<strong>Programming</strong> ka matlab hai computer ko kisi task ya problem ko solve karne ke liye
+instructions likh kar dena. In instructions ko aam tor par code kaha jata hai.
+</p>
+<p>
+Jo shakhs code likhta hai usay <strong>programmer</strong> kehte hain, aur instructions ka complete set
+jo computer execute karta hai usay <strong>program</strong> kaha ja sakta hai.
+</p>
+
+<table>
+<tr><th>Term</th><th>Simple meaning</th></tr>
+<tr><td>Computer</td><td>Machine jo instructions execute karti hai.</td></tr>
+<tr><td>Program</td><td>Instructions ka set jo koi task perform karta hai.</td></tr>
+<tr><td>Programmer</td><td>Woh person jo code likhta hai.</td></tr>
+<tr><td>Programming</td><td>Computer programs design aur write karne ka process.</td></tr>
+<tr><td>Code</td><td>Programming language mein likhi hui instructions.</td></tr>
+</table>
+
+<h2>3. Real-life example: Chai banana</h2>
+<p>
+Programming ko samajhne ke liye chai banane ka example lete hain. Agar aap kisi beginner ko chai
+banana sikhana chahein, to aap steps batayenge:
+</p>
+<ol>
+<li>Ek pan mein pani daalein.</li>
+<li>Pani garam karein.</li>
+<li>Chai patti add karein.</li>
+<li>Doodh aur cheeni add karein.</li>
+<li>Chai ko kuch der pakayein.</li>
+<li>Chai cup mein pour karein.</li>
+</ol>
+<p>
+Yeh ordered steps ek <strong>algorithm</strong> ki simple example hain. Agar steps ka order ghalat ho,
+result bhi ghalat ho sakta hai. Programming mein bhi sequence matter karta hai.
+</p>
+
+<h2>4. Algorithm kya hota hai?</h2>
+<p>
+<strong>Algorithm</strong> kisi problem ko solve karne ke liye clear, finite aur ordered steps ka naam hai.
+Algorithm likhne ke liye programming language zaroori nahi. Aap Urdu, Roman Urdu, English ya diagrams
+mein bhi algorithm explain kar sakte hain.
+</p>
+
+<h3>Example: Do numbers ka total</h3>
+<ol>
+<li>First number lein.</li>
+<li>Second number lein.</li>
+<li>Dono numbers ko add karein.</li>
+<li>Result display karein.</li>
+</ol>
+
+<p>Is algorithm ka output do numbers ka sum hoga.</p>
+
+<h2>5. Pseudocode kya hota hai?</h2>
+<p>
+<strong>Pseudocode</strong> algorithm ko simple, code-jaisi language mein likhne ka tareeqa hai.
+Yeh actual Python code nahi hota, balkay planning tool hota hai. Is se programmer pehle logic clear karta hai,
+phir us logic ko real programming language mein convert karta hai.
+</p>
+
+<pre><code>START
+    first_number lo
+    second_number lo
+    total = first_number + second_number
+    total display karo
+END</code></pre>
+
+<p>
+Pseudocode ka faida yeh hai ke aap syntax ki tension ke baghair problem-solving par focus kar sakte hain.
+</p>
+
+<h2>6. Flowchart ka basic idea</h2>
+<p>
+Flowchart algorithm ko symbols aur arrows ki madad se represent karta hai. Common symbols:
+</p>
+<ul>
+<li><strong>Oval:</strong> Start ya End.</li>
+<li><strong>Rectangle:</strong> Process ya calculation.</li>
+<li><strong>Parallelogram:</strong> Input ya Output.</li>
+<li><strong>Diamond:</strong> Decision, jaise “salary 50,000 se zyada hai?”</li>
+<li><strong>Arrow:</strong> Flow ya next step.</li>
+</ul>
+
+<h2>7. Programming language kya hoti hai?</h2>
+<p>
+Computer directly human language nahi samajhta. Programmer programming languages use karta hai,
+jaise Python, JavaScript, Java, C++ aur C#. Har language ke apne rules aur syntax hotay hain.
+</p>
+<p>
+<strong>Syntax</strong> ka matlab hai language mein code likhne ke rules. Jaise English mein grammar hoti hai,
+waise Python mein syntax hota hai. Syntax ghalat ho to program error de sakta hai.
+</p>
+
+<h2>8. Python kya hai?</h2>
+<p>
+Python ek high-level, general-purpose programming language hai. Is ka syntax readable aur beginner-friendly
+hai. Python se automation, websites, data analysis, artificial intelligence, testing aur desktop applications
+banayi ja sakti hain.
+</p>
+<p>
+Aapke final project, <strong>Employee Salary Management System</strong>, ke liye Python useful hai kyun ke
+hum is se employee records, salary calculations, deductions, reports aur database handling implement kar sakte hain.
+</p>
+
+<h2>9. Python ka pehla simple program</h2>
+<pre><code>print("Assalam-o-Alaikum!")
+print("Main Python seekh raha hoon.")
+print("Mera pehla program chal gaya!")</code></pre>
+
+<p>
+Yahan <code>print()</code> screen par text display karta hai. Abhi aapko har syntax detail yaad karne ki zaroorat nahi.
+Filhaal sirf yeh samajhna hai ke code instructions ka readable form hai.
+</p>
+
+<h2>10. Problem ko programming problem mein convert karna</h2>
+<p>
+Har software project ki shuruat code se nahi hoti. Pehle problem ko samjha jata hai.
+Employee Salary Management System ke liye basic problem statement kuch yun ho sakta hai:
+</p>
+<div class="note">
+  Company ko employees ka record maintain karna hai, basic salary aur allowances store karne hain,
+  deductions calculate karni hain, net salary nikalni hai, aur salary reports generate karni hain.
+</div>
+
+<p>Is problem ko hum chhote modules mein divide kar sakte hain:</p>
+<ol>
+<li>Employee add karna.</li>
+<li>Employee record view karna.</li>
+<li>Basic salary aur allowances enter karna.</li>
+<li>Deductions calculate karna.</li>
+<li>Net salary calculate karna.</li>
+<li>Data database mein save karna.</li>
+<li>Salary slip ya report generate karna.</li>
+</ol>
+
+<p>
+Is process ko <strong>decomposition</strong> kehte hain, yani bari problem ko manageable chhoti problems mein divide karna.
+Yeh programming ki sab se important skills mein se ek hai.
+</p>
+</section>
+
+<section class="card">
+<h2>Practice exercises</h2>
+<ol>
+<li>Apni subah ki routine ka algorithm 8 steps mein likhein.</li>
+<li>Do numbers ka average nikalne ka pseudocode likhein.</li>
+<li>Ek algorithm likhein jo employee ka naam aur basic salary receive kare.</li>
+<li>Employee Salary Management System ke 5 possible features likhein.</li>
+<li>Apne words mein explain karein ke programming aur algorithm mein kya difference hai.</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>Quick quiz</h2>
+<p>Har question par click karein. Pehle khud answer sochiye, phir solution open karein.</p>
+<details><summary>1. Programming ka basic purpose kya hai?</summary><p><strong>Jawab:</strong> Computer ko task perform karne ke liye clear instructions dena.</p></details>
+<details><summary>2. Programmer kise kehte hain?</summary><p><strong>Jawab:</strong> Jo person computer programs ke liye code likhta hai.</p></details>
+<details><summary>3. Algorithm kya hota hai?</summary><p><strong>Jawab:</strong> Kisi problem ko solve karne ke ordered aur clear steps.</p></details>
+<details><summary>4. Pseudocode actual code hota hai?</summary><p><strong>Jawab:</strong> Nahi. Yeh logic planning ke liye code-jaisi simple explanation hoti hai.</p></details>
+<details><summary>5. Python kis qisam ki language hai?</summary><p><strong>Jawab:</strong> High-level, general-purpose programming language.</p></details>
+</section>
+
+<section class="card">
+<h2>Lesson summary</h2>
+<ul class="check">
+<li>Programming ka matlab instructions likhna hai.</li>
+<li>Program instructions ka set hota hai.</li>
+<li>Algorithm ordered steps ka naam hai.</li>
+<li>Pseudocode coding se pehle logic plan karne mein help karta hai.</li>
+<li>Decomposition bari problem ko chhoti problems mein divide karta hai.</li>
+<li>Python readable aur versatile programming language hai.</li>
+</ul>
+<p><strong>Next lesson ki preparation:</strong> Apne computer par Python install karne ke liye ready ho jaiye. Agle lesson mein Python ka introduction, history aur features detail se samjhenge.</p>
+</section>
+
+<footer class="footer">Python Mastery • Lesson 1 • Designed with love for a very special Begum 💖</footer>
+</div>
+</body>
+</html>

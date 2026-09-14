@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2 | Python Introduction, History and Features</title>
+<style>
+:root{--navy:#0b1f3a;--blue:#3776ab;--gold:#ffd343;--pink:#c2185b;--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#e2e8f0;--code:#101827;--soft:#eef5ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.8}
+.wrapper{max-width:1050px;margin:auto;padding:24px}
+.hero{background:linear-gradient(125deg,var(--navy),#24588c);color:#fff;border-radius:26px;padding:36px;margin-bottom:22px}
+.badge{display:inline-block;background:#ffffff20;border:1px solid #ffffff40;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:800;letter-spacing:.5px}
+h1{font-size:clamp(29px,5vw,47px);line-height:1.15;margin:15px 0 10px}
+h2{color:var(--navy);font-size:clamp(23px,3vw,31px);margin-top:35px;border-bottom:2px solid var(--line);padding-bottom:8px}
+h3{color:var(--blue);margin-top:25px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:27px;margin:20px 0;box-shadow:0 8px 25px #0b1f3a0c}
+.note{background:#fff7d6;border-left:6px solid var(--gold);padding:17px 20px;border-radius:12px}
+.romantic{background:linear-gradient(135deg,#fff0f6,#ffe4ec);border:2px solid #e78aaa;border-left:8px solid var(--pink);color:#7a2048}
+ul,ol{padding-left:27px}
+li{margin:7px 0}
+code{background:#edf2f7;padding:2px 6px;border-radius:5px;color:#8b2451}
+pre{background:var(--code);color:#e8eef8;padding:22px;border-radius:15px;overflow:auto;font-size:14px;line-height:1.65}
+pre code{background:transparent;color:inherit;padding:0}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--navy)}
+details{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:12px 0}
+summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.check{color:#16845b;font-weight:700}
+.footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 0}
+@media(max-width:650px){.wrapper{padding:12px}.hero,.card{padding:19px}pre{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header class="hero">
+<span class="badge">PYTHON MASTERY • PHASE 1 • LESSON 2</span>
+<h1>Python introduction, history and features</h1>
+<p>Python kya hai, kahan se aayi, aur isay seekhna useful kyun hai?</p>
+</header>
+
+<div class="note romantic">
+<strong>💖 Ay Meri Sundar Begum,</strong><br>
+Yeh course Aapke Shohar ne Aapke liye bohat mehnat se banaya hai.
+Mehnat se kejiyga isko, Aap please. Har concept ko araam se samajhiye aur examples ko khud try kijiye. 🌹
+</div>
+
+<section class="card">
+<h2>Learning objectives</h2>
+<ul>
+<li>Python ka clear definition samajhna.</li>
+<li>Python ki history aur Guido van Rossum ka role samajhna.</li>
+<li>High-level, general-purpose aur interpreted language ke concepts samajhna.</li>
+<li>Python ki important features ko examples ke saath samajhna.</li>
+<li>Python ke real-world uses aur limitations identify karna.</li>
+<li>Apne Employee Salary Management System ke liye Python ki suitability samajhna.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>1. Python kya hai?</h2>
+<p>
+<strong>Python ek high-level, general-purpose programming language hai</strong> jo readable syntax,
+simple structure aur bohat se practical uses ki wajah se mashhoor hai.
+Programming language ka matlab hai woh formal language jismein hum computer ko instructions dete hain.
+</p>
+<p>
+Python mein code aksar English-like nazar aata hai, is liye beginners ko doosri complex languages ke
+muqable mein start karna relatively easy lagta hai. Lekin easy syntax ka matlab yeh nahi ke Python
+sirf chhote programs ke liye hai. Is se large applications, automation systems, APIs, data tools aur
+business software bhi ban sakta hai.
+</p>
+
+<h2>2. Python ko high-level kyun kehte hain?</h2>
+<p>
+High-level language insaan ke liye zyada readable hoti hai aur machine-level details ko hide karti hai.
+Aapko har memory address ya processor instruction manually manage karne ki zaroorat nahi hoti.
+</p>
+<p>
+Misal ke taur par Python mein do numbers add karna simple hai:
+</p>
+<pre><code>first_number = 10
+second_number = 20
+total = first_number + second_number
+
+print(total)</code></pre>
+<p>
+Aap logic par focus karte hain, jabke language ka runtime aur interpreter execution ki technical details
+handle karte hain.
+</p>
+
+<h2>3. General-purpose language ka matlab</h2>
+<p>
+General-purpose ka matlab hai ke Python sirf ek specific field tak limited nahi. Isay mukhtalif categories
+mein use kiya ja sakta hai:
+</p>
+<table>
+<tr><th>Field</th><th>Python ka use</th></tr>
+<tr><td>Automation</td><td>Repeated tasks, file processing aur reports automate karna.</td></tr>
+<tr><td>Web development</td><td>Websites, backends aur APIs banana.</td></tr>
+<tr><td>Data analysis</td><td>Data clean, calculate, analyze aur visualize karna.</td></tr>
+<tr><td>Artificial intelligence</td><td>Machine learning aur AI models ke saath kaam karna.</td></tr>
+<tr><td>Testing</td><td>Software ke automated tests likhna.</td></tr>
+<tr><td>Desktop applications</td><td>Tkinter jaisi libraries se GUI applications banana.</td></tr>
+<tr><td>Business software</td><td>Inventory, accounting, payroll aur employee-management systems banana.</td></tr>
+</table>
+
+<h2>4. Python ki short history</h2>
+<p>
+Python ko <strong>Guido van Rossum</strong> ne develop kiya. Python ka first public release 1991 mein hua.
+Is ka development readability, simplicity aur programmer productivity ko madde-nazar rakh kar hua.
+</p>
+<p>
+Python ka naam snake ki wajah se nahi rakha gaya tha. Naam British comedy group ke television show
+<strong>Monty Python's Flying Circus</strong> se inspired tha. Python ka logo baad mein snake imagery
+ki wajah se aur zyada recognizable ho gaya.
+</p>
+
+<h3>Important historical milestones</h3>
+<ul>
+<li><strong>Late 1980s:</strong> Python ka initial development start hua.</li>
+<li><strong>1991:</strong> Python ka first public release hua.</li>
+<li><strong>Python 2 era:</strong> Python community aur ecosystem ne rapid growth dekhi.</li>
+<li><strong>2008:</strong> Python 3 release hua, jismein language ko improve aur modernize kiya gaya.</li>
+<li><strong>Today:</strong> Python education, automation, data, AI, web aur business applications mein widely used hai.</li>
+</ul>
+<p class="note">
+<strong>Important:</strong> Python 2 aur Python 3 ke darmiyan differences hain. Aaj ke naye projects ke liye
+Python 3 use karna standard choice hai.
+</p>
+
+<h2>5. Python interpreted language hai?</h2>
+<p>
+Beginner level par Python ko interpreted language kaha jata hai kyun ke Python code ko execute karne ke liye
+Python interpreter/runtime use hota hai. Aap source file likhte hain aur interpreter usay run karta hai.
+</p>
+<pre><code>print("Hello, Python!")</code></pre>
+<p>
+Practical reality thori advanced hai: modern Python implementation source code ko bytecode mein convert karke
+virtual machine par execute kar sakti hai. Abhi is detail ko yaad karna zaroori nahi. Basic point yeh hai
+ke Python interpreter aapke code ko run karne mein central role play karta hai.
+</p>
+
+<h2>6. Python ki major features</h2>
+
+<h3>6.1 Readable aur beginner-friendly syntax</h3>
+<p>
+Python ka syntax comparatively clean hota hai. Is mein unnecessary symbols kam hotay hain, jis se code
+samajhna aur maintain karna easy ho sakta hai.
+</p>
+<pre><code>name = "Sara"
+print("Hello", name)</code></pre>
+
+<h3>6.2 Dynamically typed language</h3>
+<p>
+Python mein aam tor par variable ka type separately declare nahi karna parta. Python value ko dekh kar
+type identify kar leti hai.
+</p>
+<pre><code>age = 25
+employee_name = "Ali"
+salary = 75000.50</code></pre>
+<p>
+Yahan <code>age</code> integer, <code>employee_name</code> string aur <code>salary</code> floating-point
+number ko refer kar rahe hain. Dynamic typing convenient hai, lekin types ko samajhna phir bhi zaroori hai.
+</p>
+
+<h3>6.3 Large standard library</h3>
+<p>
+Python ke saath bohat se ready-made modules milte hain. In se dates, mathematics, files, JSON, operating
+system tasks aur bohat kuch handle kiya ja sakta hai.
+</p>
+<pre><code>import math
+
+print(math.sqrt(25))</code></pre>
+
+<h3>6.4 Cross-platform support</h3>
+<p>
+Python Windows, macOS aur Linux par use ho sakti hai. Is ka matlab yeh nahi ke har program bina kisi change
+ke har system par perfect chalega, lekin Python ka core ecosystem multiple platforms support karta hai.
+</p>
+
+<h3>6.5 Huge community aur third-party packages</h3>
+<p>
+Python ke liye bohat se packages available hain. Package ek reusable software component samjhein jo specific
+kaam ko easy bana sakta hai.
+</p>
+<ul>
+<li><code>requests</code> web requests ke liye.</li>
+<li><code>pandas</code> data analysis ke liye.</li>
+<li><code>openpyxl</code> Excel files ke liye.</li>
+<li><code>pytest</code> testing ke liye.</li>
+<li><code>reportlab</code> PDF generation ke liye.</li>
+<li><code>tkinter</code> desktop GUI ke liye.</li>
+</ul>
+
+<h3>6.6 Multiple programming styles</h3>
+<p>
+Python procedural, object-oriented aur functional programming ke concepts support karti hai. Aap chhote
+scripts se start kar sakte hain aur baad mein classes, modules aur layered architecture tak ja sakte hain.
+</p>
+
+<h3>6.7 Rapid development</h3>
+<p>
+Readable syntax aur ready-made libraries ki wajah se Python mein prototype aur business tools comparatively
+jaldi develop kiye ja sakte hain. Lekin fast development ka matlab careless development nahi. Validation,
+security, testing aur clean structure phir bhi zaroori hain.
+</p>
+
+<h2>7. Python ki limitations</h2>
+<p>
+Har language ki strengths aur weaknesses hoti hain. Python bhi koi magical wand nahi, warna programmers
+ki zindagi mein bugs naam ki makhlooq na hoti.
+</p>
+<ul>
+<li>Python kuch performance-heavy tasks mein compiled languages se slow ho sakti hai.</li>
+<li>Memory usage kuch situations mein zyada ho sakta hai.</li>
+<li>Mobile app development ke liye Python primary choice nahi hoti.</li>
+<li>Real-time, extremely low-level systems ke liye doosri languages zyada suitable ho sakti hain.</li>
+</ul>
+<p>
+Limitations ke bawajood Python automation, business applications, data aur learning ke liye bohat powerful
+choice hai.
+</p>
+
+<h2>8. Python aur aapka final project</h2>
+<p>
+Aapka final project <strong>Employee Salary Management System</strong> hoga. Is project mein Python ko
+multiple roles perform karne honge:
+</p>
+<ol>
+<li>Employee information input lena.</li>
+<li>Variables aur data structures mein information handle karna.</li>
+<li>Salary, allowances aur deductions calculate karna.</li>
+<li>Conditions aur functions se business rules implement karna.</li>
+<li>SQLite database mein records save karna.</li>
+<li>Tkinter se user-friendly interface banana.</li>
+<li>Excel aur PDF reports generate karna.</li>
+<li>Testing aur error handling se system reliable banana.</li>
+</ol>
+
+<h2>9. Python code ka mini example</h2>
+<pre><code>employee_name = "Ayesha"
+basic_salary = 80000
+allowance = 12000
+
+gross_salary = basic_salary + allowance
+
+print("Employee:", employee_name)
+print("Gross salary:", gross_salary)</code></pre>
+<p>
+Is example mein hum ne variables, assignment, arithmetic aur output ka basic use dekha. Aage chal kar isi
+logic ko functions, validation, database aur GUI ke saath complete application mein convert karenge.
+</p>
+
+<h2>10. Python seekhne ka sahi tareeqa</h2>
+<ol>
+<li>Concept ko samjhein, ratta na lagayein.</li>
+<li>Code khud type karein.</li>
+<li>Har example ko modify karke dekhein.</li>
+<li>Error aaye to ghabrayein nahi, error message parhein.</li>
+<li>Chhoti practice ke baad hi next topic par move karein.</li>
+<li>Har phase mein final project se connection banayein.</li>
+</ol>
+
+</section>
+
+<section class="card">
+<h2>Practice exercises</h2>
+<ol>
+<li>Python ko apne words mein 4 lines mein define karein.</li>
+<li>Python ke 7 features list karein aur har feature ki one-line explanation likhein.</li>
+<li>Python ke 5 real-world uses likhein.</li>
+<li>Dynamic typing ka example code ke saath explain karein.</li>
+<li>Employee Salary Management System mein Python ke 6 possible roles likhein.</li>
+<li>Python ki 2 limitations aur 2 strengths compare karein.</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>Quick quiz</h2>
+<p>Pehle answer khud sochiye, phir details open karein.</p>
+<details><summary>1. Python kis ne develop ki?</summary><p><strong>Jawab:</strong> Guido van Rossum.</p></details>
+<details><summary>2. Python ka first public release kis saal hua?</summary><p><strong>Jawab:</strong> 1991.</p></details>
+<details><summary>3. General-purpose language ka kya matlab hai?</summary><p><strong>Jawab:</strong> Aisi language jo mukhtalif types ke tasks aur fields mein use ho sakti hai.</p></details>
+<details><summary>4. Dynamic typing kya hoti hai?</summary><p><strong>Jawab:</strong> Variable ka type aam tor par value ke basis par runtime par determine hota hai.</p></details>
+<details><summary>5. Kya Python har situation mein fastest language hai?</summary><p><strong>Jawab:</strong> Nahi. Python ki readability aur productivity strong hain, lekin kuch performance-heavy tasks mein doosri languages better ho sakti hain.</p></details>
+<details><summary>6. Python 3 ko naye projects mein kyun prefer karte hain?</summary><p><strong>Jawab:</strong> Python 3 modern, maintained aur current ecosystem ki standard version hai.</p></details>
+</section>
+
+<section class="card">
+<h2>Lesson summary</h2>
+<ul class="check">
+<li>Python high-level aur general-purpose programming language hai.</li>
+<li>Python ka first public release 1991 mein hua.</li>
+<li>Guido van Rossum Python ke creator hain.</li>
+<li>Python readable syntax, dynamic typing aur large ecosystem provide karti hai.</li>
+<li>Python automation, web, data, AI, testing aur business software mein use hoti hai.</li>
+<li>Python ki limitations bhi hain, is liye project ke requirements samajhna zaroori hai.</li>
+<li>Hamare salary-management project mein Python calculations, database, GUI aur reports ke liye use hogi.</li>
+</ul>
+<p><strong>Next lesson:</strong> Python installation aur development environment. Us mein hum Python ko computer par ready karenge aur pehli file run karenge.</p>
+</section>
+
+<footer class="footer">Python Mastery • Lesson 2 • Designed with love for a very special Begum 💖</footer>
+</div>
+</body>
+</html>

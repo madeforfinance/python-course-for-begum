@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3 | Python Installation and Development Environment</title>
+<style>
+:root{
+  --navy:#0b1f3a;--blue:#3776ab;--gold:#ffd343;--pink:#c2185b;
+  --bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#667085;
+  --line:#e2e8f0;--code:#101827;--soft:#eef5ff;--green:#16845b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.8}
+.wrapper{max-width:1080px;margin:auto;padding:24px}
+.hero{background:linear-gradient(125deg,var(--navy),#24588c);color:#fff;border-radius:26px;padding:36px;margin-bottom:22px}
+.badge{display:inline-block;background:#ffffff20;border:1px solid #ffffff40;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:800;letter-spacing:.5px}
+h1{font-size:clamp(29px,5vw,47px);line-height:1.15;margin:15px 0 10px}
+h2{color:var(--navy);font-size:clamp(23px,3vw,31px);margin-top:35px;border-bottom:2px solid var(--line);padding-bottom:8px}
+h3{color:var(--blue);margin-top:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:27px;margin:20px 0;box-shadow:0 8px 25px #0b1f3a0c}
+.note{background:#fff7d6;border-left:6px solid var(--gold);padding:17px 20px;border-radius:12px}
+.romantic{background:linear-gradient(135deg,#fff0f6,#ffe4ec);border:2px solid #e78aaa;border-left:8px solid var(--pink);color:#7a2048}
+.tip{background:#eef8f2;border-left:6px solid var(--green);padding:16px 20px;border-radius:12px}
+.warning{background:#fff1f1;border-left:6px solid #c24141;padding:16px 20px;border-radius:12px}
+ul,ol{padding-left:27px}
+li{margin:7px 0}
+code{background:#edf2f7;padding:2px 6px;border-radius:5px;color:#8b2451}
+pre{background:var(--code);color:#e8eef8;padding:22px;border-radius:15px;overflow:auto;font-size:14px;line-height:1.65}
+pre code{background:transparent;color:inherit;padding:0}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+th{background:var(--soft);color:var(--navy)}
+details{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:12px 0}
+summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.check{color:var(--green);font-weight:700}
+.footer{text-align:center;color:var(--muted);font-size:13px;padding:25px 0}
+@media(max-width:650px){.wrapper{padding:12px}.hero,.card{padding:19px}pre{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header class="hero">
+<span class="badge">PYTHON MASTERY • PHASE 1 • LESSON 3</span>
+<h1>Python installation and development environment</h1>
+<p>Apne computer par Python install karna, version check karna, editor samajhna aur pehli Python file run karna.</p>
+</header>
+
+<div class="note romantic">
+<strong>💖 Ay Meri Sundar Begum,</strong><br>
+Yeh course Aapke Shohar ne Aapke liye bohat mehnat se banaya hai.
+Mehnat se kejiyga isko, Aap please. Har step ko araam se follow kijiye, aur agar koi error aaye to ghabrana nahi. 🌹
+</div>
+
+<section class="card">
+<h2>Learning objectives</h2>
+<ul>
+<li>Python interpreter aur Python installation ka role samajhna.</li>
+<li>Windows par Python install karne ka complete basic process samajhna.</li>
+<li>Python version verify karna.</li>
+<li>Terminal, Command Prompt, PowerShell, IDLE aur code editor ka difference samajhna.</li>
+<li>Python file create, save aur run karna.</li>
+<li>PATH aur working directory ka basic concept samajhna.</li>
+<li>Common installation errors ko identify aur troubleshoot karna.</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>1. Development environment kya hota hai?</h2>
+<p>
+<strong>Development environment</strong> woh setup hota hai jahan programmer code likhta, save karta,
+run karta aur errors check karta hai. Is setup mein aam tor par programming language, interpreter,
+code editor, terminal aur project folders shamil hotay hain.
+</p>
+<p>
+Agar aap Python seekhna chahti hain, to sirf Python install karna enough nahi. Aapko yeh bhi samajhna
+hoga ke code kahan likhna hai, file kis naam se save karni hai, terminal se program kaise run karna hai,
+aur error aaye to usay kaise read karna hai.
+</p>
+
+<table>
+<tr><th>Component</th><th>Role</th></tr>
+<tr><td>Python interpreter</td><td>Python code ko execute karta hai.</td></tr>
+<tr><td>Code editor</td><td>Code likhne aur edit karne ke liye.</td></tr>
+<tr><td>Terminal</td><td>Commands run karne aur files execute karne ke liye.</td></tr>
+<tr><td>Project folder</td><td>Code files ko organized rakhne ke liye.</td></tr>
+<tr><td>Debugger</td><td>Program ke errors aur execution ko investigate karne mein help karta hai.</td></tr>
+</table>
+
+<h2>2. Python interpreter kya karta hai?</h2>
+<p>
+Python interpreter woh software component hai jo Python instructions ko run karne mein help karta hai.
+Jab aap likhti hain:
+</p>
+<pre><code>print("Hello Python")</code></pre>
+<p>
+to interpreter is instruction ko process karta hai aur screen par output show hota hai:
+</p>
+<pre><code>Hello Python</code></pre>
+<p>
+Simple terms mein, aap code likhti hain aur interpreter us code ko execute karne ka kaam karta hai.
+</p>
+
+<h2>3. Python kahan se install karni chahiye?</h2>
+<p>
+Python hamesha trusted official source se install karni chahiye. Random websites se installer download
+karna unnecessary risk hai. Official Python website ka address hai:
+</p>
+<p><strong>https://www.python.org/</strong></p>
+<p>
+Website par Downloads section mein ja kar apne operating system ke mutabiq installer choose kiya jata hai.
+Windows users ke liye Windows installer available hota hai.
+</p>
+
+<div class="warning">
+<strong>Security reminder:</strong> Python installer sirf official Python website se download karein.
+Unknown websites, cracked packages aur suspicious “one-click Python installers” se door rahna behtar hai.
+</div>
+
+<h2>4. Windows par Python installation: step by step</h2>
+
+<h3>Step 1: Installer download karein</h3>
+<ol>
+<li>Browser open karein.</li>
+<li>Official Python website par jayein.</li>
+<li>Downloads section open karein.</li>
+<li>Windows ke liye suitable Python 3 installer download karein.</li>
+</ol>
+
+<h3>Step 2: Installer run karein</h3>
+<p>
+Downloaded installer ko open karein. Installation window mein options carefully read karein.
+Sab se important option aam tor par yeh hota hai:
+</p>
+<pre><code>Add python.exe to PATH</code></pre>
+<p>
+Agar yeh option available ho, to isay select karna useful hota hai. Is se Windows terminal ko Python
+command locate karne mein asani hoti hai.
+</p>
+
+<h3>Step 3: Install Now</h3>
+<p>
+Basic beginner setup ke liye <strong>Install Now</strong> option use kiya ja sakta hai. Installation complete
+hone ka wait karein. Agar Windows security permission maange, to sirf trusted official installer ke liye
+appropriate permission dein.
+</p>
+
+<h3>Step 4: Installation complete hone dein</h3>
+<p>
+Installation complete hone ke baad success message show ho sakta hai. Ab terminal ko close karke dobara
+open karna useful hota hai, taa-ke updated PATH settings apply ho sakein.
+</p>
+
+<h2>5. Python installation verify karna</h2>
+<p>
+Installation ke baad Windows mein Command Prompt ya PowerShell open karein. Phir yeh command type karein:
+</p>
+<pre><code>python --version</code></pre>
+<p>
+Agar Python properly install hai, to output kuch is type ka ho sakta hai:
+</p>
+<pre><code>Python 3.x.x</code></pre>
+<p>
+Yahan <code>3.x.x</code> ka matlab installed Python 3 version hai. Exact version aapke installed release
+par depend karega.
+</p>
+
+<h3>Alternative command</h3>
+<p>
+Kuch Windows systems par Python launcher ke liye yeh command bhi work karti hai:
+</p>
+<pre><code>py --version</code></pre>
+<p>
+Agar <code>python --version</code> work na kare, to <code>py --version</code> try karein.
+</p>
+
+<h2>6. Python interactive shell kya hota hai?</h2>
+<p>
+Python install hone ke baad terminal mein sirf <code>python</code> likhne se interactive shell open ho sakta hai.
+Isay REPL bhi kaha jata hai. REPL ka meaning hai:
+</p>
+<ul>
+<li><strong>Read:</strong> Aapki instruction read karna.</li>
+<li><strong>Evaluate:</strong> Instruction ko process karna.</li>
+<li><strong>Print:</strong> Result show karna.</li>
+<li><strong>Loop:</strong> Dobara next instruction ka wait karna.</li>
+</ul>
+
+<p>Example:</p>
+<pre><code>python</code></pre>
+<p>Phir Python prompt par:</p>
+<pre><code>2 + 3</code></pre>
+<p>Output:</p>
+<pre><code>5</code></pre>
+
+<p>
+Interactive shell chhoti experiments ke liye useful hai. Lekin complete projects ke liye hum aam tor par
+<strong>.py files</strong> use karenge.
+</p>
+
+<h3>Interactive shell se exit kaise karein?</h3>
+<ul>
+<li>Windows par <code>exit()</code> likh kar Enter press karein.</li>
+<li>Keyboard shortcut <code>Ctrl + Z</code>, phir Enter bhi Windows par use ho sakta hai.</li>
+</ul>
+
+<h2>7. Python file kya hoti hai?</h2>
+<p>
+Python code ko file mein save karne ke liye normally <strong>.py</strong> extension use hoti hai.
+Misal ke taur par:
+</p>
+<ul>
+<li><code>hello.py</code></li>
+<li><code>salary_calculator.py</code></li>
+<li><code>employee_management.py</code></li>
+</ul>
+<p>
+File ka naam meaningful rakhna chahiye. Spaces se bachna aur lowercase plus underscores use karna
+beginner-friendly convention hai, jaise <code>salary_report.py</code>.
+</p>
+
+<h2>8. Pehli Python file banana</h2>
+<p>Ab ek simple file banate hain.</p>
+<ol>
+<li>Desktop par ek folder banayein: <code>PythonPractice</code>.</li>
+<li>Is folder ke andar ek new text file banayein.</li>
+<li>File ka naam <code>hello.py</code> rakhein.</li>
+<li>File mein yeh code likhein:</li>
+</ol>
+
+<pre><code>print("Assalam-o-Alaikum!")
+print("Mera pehla Python program hai.")
+print("Main Python seekh rahi hoon.")</code></pre>
+
+<div class="warning">
+<strong>Important Windows point:</strong> Kabhi kabhi Windows file extensions hide karta hai.
+Aisi situation mein file ka naam ghalti se <code>hello.py.txt</code> ban sakta hai.
+File Explorer mein “File name extensions” enable karke extension verify karein.
+</div>
+
+<h2>9. Python file ko terminal se run karna</h2>
+<p>
+Ab Command Prompt ya PowerShell open karein. Sab se pehle us folder mein jayein jahan file save hai.
+Agar folder Desktop par hai, to command kuch is type ki ho sakti hai:
+</p>
+<pre><code>cd Desktop\PythonPractice</code></pre>
+<p>
+Yahan <code>cd</code> ka matlab hai <strong>change directory</strong>. Is command se terminal ka current folder
+change hota hai.
+</p>
+<p>Ab file run karein:</p>
+<pre><code>python hello.py</code></pre>
+<p>Agar Python launcher use karna ho:</p>
+<pre><code>py hello.py</code></pre>
+
+<p>Expected output:</p>
+<pre><code>Assalam-o-Alaikum!
+Mera pehla Python program hai.
+Main Python seekh rahi hoon.</code></pre>
+
+<h2>10. Working directory kya hoti hai?</h2>
+<p>
+<strong>Working directory</strong> woh folder hota hai jahan terminal is waqt kaam kar raha hota hai.
+Agar aap <code>hello.py</code> run kar rahi hain aur terminal kisi doosre folder mein hai, to Python file
+find nahi kar payega jab tak aap correct folder mein na jayein ya file ka complete path provide na karein.
+</p>
+
+<p>Current directory dekhne ke liye Windows Command Prompt mein:</p>
+<pre><code>cd</code></pre>
+
+<p>Folder ki files dekhne ke liye:</p>
+<pre><code>dir</code></pre>
+
+<p>
+Yeh commands terminal navigation ke basic tools hain. Aage chal kar projects ke saath kaam karte waqt
+yeh bohat useful hongi.
+</p>
+
+<h2>11. Code editor kya hota hai?</h2>
+<p>
+Code editor woh application hai jahan aap code likhti hain. Simple Notepad bhi text likh sakta hai,
+lekin programming ke liye specialized editor zyada useful hota hai kyun ke woh syntax highlighting,
+auto-completion, indentation aur error hints provide kar sakta hai.
+</p>
+
+<table>
+<tr><th>Tool</th><th>Basic use</th><th>Beginner ke liye note</th></tr>
+<tr><td>Notepad</td><td>Plain text editing</td><td>Basic files ke liye, lekin coding features limited.</td></tr>
+<tr><td>IDLE</td><td>Python ke saath basic editor aur shell</td><td>Simple learning ke liye useful.</td></tr>
+<tr><td>VS Code</td><td>Advanced code editing</td><td>Extensions, terminal aur project management ke liye popular.</td></tr>
+<tr><td>PyCharm</td><td>Python-focused IDE</td><td>Large Python projects ke liye powerful, lekin beginners ko initially heavy lag sakta hai.</td></tr>
+</table>
+
+<h2>12. IDLE ka basic use</h2>
+<p>
+IDLE Python ke saath available basic development environment hai. Is mein Python Shell aur editor dono
+mil sakte hain.
+</p>
+<ol>
+<li>Start Menu mein IDLE search karein.</li>
+<li>IDLE open karein.</li>
+<li>File menu se New File choose karein.</li>
+<li>Code likhein.</li>
+<li>File ko <code>hello.py</code> ke naam se save karein.</li>
+<li>Run menu se Run Module choose karein.</li>
+</ol>
+<p>
+IDLE simple exercises aur early lessons ke liye enough ho sakta hai.
+</p>
+
+<h2>13. VS Code ka basic setup</h2>
+<p>
+VS Code ek popular code editor hai. Python development ke liye aam tor par yeh basic steps follow kiye
+jate hain:
+</p>
+<ol>
+<li>VS Code install karein.</li>
+<li>VS Code open karein.</li>
+<li>Apna <code>PythonPractice</code> folder open karein.</li>
+<li>Python extension install karein, agar required ho.</li>
+<li>New Python file banayein.</li>
+<li>Code likhein aur save karein.</li>
+<li>Run button ya integrated terminal se file execute karein.</li>
+</ol>
+
+<div class="tip">
+<strong>Good habit:</strong> Har project ke liye separate folder banayein. Misal ke taur par:
+<code>python-course</code>, <code>salary-management-system</code> aur <code>practice-exercises</code>.
+Is se files mix nahi hongi.
+</div>
+
+<h2>14. PATH kya hota hai?</h2>
+<p>
+PATH operating system ka ek environment setting concept hai. Is mein folders ki locations hoti hain
+jahan system executable commands search kar sakta hai.
+</p>
+<p>
+Agar Python ka path properly configured ho, to aap terminal mein directly:
+</p>
+<pre><code>python</code></pre>
+<p>
+likh kar Python run kar sakti hain. Agar PATH configured na ho, to system keh sakta hai ke
+“python is not recognized” ya similar error aa sakta hai.
+</p>
+<p>
+Beginner ke liye important point: installation ke waqt <strong>Add Python to PATH</strong> select karna
+future command-line work ko easy bana sakta hai.
+</p>
+
+<h2>15. Common errors aur unke solutions</h2>
+
+<h3>Error 1: “python is not recognized”</h3>
+<p>Possible reasons:</p>
+<ul>
+<li>Python install nahi hui.</li>
+<li>PATH option select nahi hua.</li>
+<li>Terminal installation se pehle open tha.</li>
+<li>System mein Python command ka alternate launcher use hota hai.</li>
+</ul>
+<p>Try:</p>
+<pre><code>py --version</code></pre>
+<p>
+Agar yeh work kare, to aap <code>py hello.py</code> use kar sakti hain. Warna Python installation aur PATH
+settings verify karein.
+</p>
+
+<h3>Error 2: “can't open file”</h3>
+<p>
+Is ka matlab ho sakta hai ke terminal current folder mein woh file nahi mil rahi. <code>dir</code> se files
+check karein aur <code>cd</code> se correct folder mein jayein.
+</p>
+
+<h3>Error 3: File actually .txt hai</h3>
+<p>
+Agar file ka naam <code>hello.py.txt</code> hai, to Python usay expected Python file ke taur par handle nahi
+karega. File extensions visible karke name correct karein.
+</p>
+
+<h3>Error 4: Syntax error</h3>
+<p>
+Agar code mein spelling, brackets, quotes ya punctuation ghalat ho, to Python error show kar sakti hai.
+Error message ki line number ko dekhein aur us line ko carefully inspect karein.
+</p>
+
+<h2>16. Project folder structure ki pehli example</h2>
+<p>
+Aage chal kar Employee Salary Management System ke liye hum organized structure use karenge. Abhi basic
+practice ke liye structure kuch yun ho sakta hai:
+</p>
+<pre><code>python-course/
+│
+├── lesson-practice/
+│   ├── hello.py
+│   ├── calculations.py
+│   └── notes.txt
+│
+└── salary-management-system/
+    └── README.txt</code></pre>
+<p>
+Abhi folders aur files simple hain. Project grow hone par hum modules, database, reports aur tests ke liye
+separate folders create karenge.
+</p>
+
+<h2>17. Installation ke baad practical checklist</h2>
+<ul class="check">
+<li>Python 3 install ho chuki hai.</li>
+<li><code>python --version</code> ya <code>py --version</code> work karta hai.</li>
+<li>Ek code editor available hai.</li>
+<li><code>PythonPractice</code> folder create ho chuka hai.</li>
+<li><code>hello.py</code> file save ho chuki hai.</li>
+<li><code>python hello.py</code> se output aa raha hai.</li>
+<li>Aap terminal mein <code>cd</code> aur <code>dir</code> ka basic use kar sakti hain.</li>
+</ul>
+
+</section>
+
+<section class="card">
+<h2>Practice exercises</h2>
+<ol>
+<li>Python ka installed version terminal mein check karein aur result note karein.</li>
+<li><code>PythonPractice</code> naam ka folder banayein.</li>
+<li><code>hello.py</code> file banakar apna naam, city aur favourite subject print karein.</li>
+<li>Terminal se folder open karein aur file run karein.</li>
+<li><code>cd</code> aur <code>dir</code> commands ka use karke current folder aur files observe karein.</li>
+<li>Ek file jaan-boojh kar <code>hello.py.txt</code> naam se banayein aur samjhein ke problem kyun hoti hai.</li>
+<li>Apne final project ke liye ek folder banayein: <code>salary-management-system</code>.</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>Quick quiz</h2>
+<p>Pehle answer khud sochiye, phir solution open karein.</p>
+<details><summary>1. Python interpreter ka basic kaam kya hai?</summary><p><strong>Jawab:</strong> Python code ko execute karne mein help karna.</p></details>
+<details><summary>2. Python file ki common extension kya hai?</summary><p><strong>Jawab:</strong> <code>.py</code></p></details>
+<details><summary>3. Python version check karne ki command kya hai?</summary><p><strong>Jawab:</strong> <code>python --version</code> ya <code>py --version</code></p></details>
+<details><summary>4. <code>cd</code> command kis liye use hoti hai?</summary><p><strong>Jawab:</strong> Current directory/folder change karne ke liye.</p></details>
+<details><summary>5. <code>dir</code> command kya show karti hai?</summary><p><strong>Jawab:</strong> Current folder ki files aur directories ki listing.</p></details>
+<details><summary>6. PATH ka basic purpose kya hai?</summary><p><strong>Jawab:</strong> System ko executable commands ke locations search karne mein help karna.</p></details>
+<details><summary>7. Agar Python command recognize na ho to ek alternate command kya try kar sakti hain?</summary><p><strong>Jawab:</strong> <code>py --version</code> ya <code>py hello.py</code></p></details>
+</section>
+
+<section class="card">
+<h2>Lesson summary</h2>
+<ul class="check">
+<li>Development environment mein interpreter, editor, terminal aur project folders shamil hotay hain.</li>
+<li>Python official source se install karni chahiye.</li>
+<li>Windows installation ke waqt Add Python to PATH useful hota hai.</li>
+<li>Python version <code>python --version</code> ya <code>py --version</code> se check hota hai.</li>
+<li>Python code ko <code>.py</code> file mein save kiya jata hai.</li>
+<li>Terminal mein <code>cd</code> folder change aur <code>dir</code> files list karne ke liye use hota hai.</li>
+<li>IDLE aur VS Code code likhne ke useful tools hain.</li>
+<li>Errors se ghabrana nahi, error message ko line number ke saath read karna hai.</li>
+</ul>
+<p><strong>Next lesson:</strong> First program, <code>print()</code>, comments aur indentation. Ab hum Python syntax ke actual building blocks ko detail se samjhenge.</p>
+</section>
+
+<footer class="footer">Python Mastery • Lesson 3 • Designed with love for a very special Begum 💖</footer>
+</div>
+</body>
+</html>
